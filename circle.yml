@@ -1,3 +1,10 @@
 machine:
   php:
     version: 5.6.5
+
+# Customize dependencies
+dependencies:
+  post:
+    - cp apache.conf /etc/apache2/sites-available
+    - a2ensite apache.conf
+    - sudo service apache2 restart
