@@ -5,6 +5,9 @@ machine:
 # Customize dependencies
 dependencies:
   post:
+    - sudo chown -R www-data:www-data storage
+    - sudo find storage -type d -exec chmod 755 {} \; && sudo find storage -type f -exec chmod 644 {} \;
+    - sudo a2enmod rewrite
     - cp apache.conf /etc/apache2/sites-available
     - a2ensite apache.conf
     - sudo service apache2 restart
